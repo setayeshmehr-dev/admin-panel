@@ -1,3 +1,4 @@
+'use client';
 import { Menu } from "lucide-react";
 import { Search } from "lucide-react";
 import { Bell } from "lucide-react";
@@ -7,11 +8,11 @@ import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
-import { Separator } from "@/components/ui/separator";
 
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Header() {
+    const [darkMode, setDarkMode] = useState(false)
   return (
     <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-50 fixed top-0 left-0 right-0 bg-background" >
         <div className=" flex gap-2.5 ">
@@ -42,8 +43,12 @@ export default function Header() {
 
             <div className="h-6 w-px bg-border" />
 
-            <Button variant="ghost" size="icon" className="rounded-xl">
-                <Moon className="size-4"  />
+            <Button onClick={() => setDarkMode(!darkMode)} variant="ghost" size="icon" className="rounded-xl">
+                {darkMode ? (
+                    <Sun className="size-4" />
+                ) : (
+                    <Moon className="size-4" />
+                )}
             </Button>
 
             <Button variant="ghost" size="icon" className="rounded-xl">
