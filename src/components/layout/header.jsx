@@ -1,22 +1,18 @@
 'use client';
-import { Menu } from "lucide-react";
-import { Search } from "lucide-react";
-import { Bell } from "lucide-react";
-import { Palette } from "lucide-react";
-import { Moon, Sun } from "lucide-react";
-import { Plus } from "lucide-react";
+
+import { Menu, Search, Bell, Palette, Moon, Sun, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
 
 import React, { useState } from 'react'
 
-export default function Header() {
+export default function Header({setSidebarOpen}) {
     const [darkMode, setDarkMode] = useState(false)
   return (
-    <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-50 fixed top-0 left-0 right-0 bg-background" >
+    <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 bg-background" >
         <div className=" flex gap-2.5 ">
-            <Button variant="ghost" size="icon" className="rounded-xl">
+            <Button onClick={()=> setSidebarOpen(true)} variant="ghost" size="icon" className=" lg:hidden rounded-xl">
                 <Menu className="size-5" />
             </Button>
 
@@ -41,7 +37,7 @@ export default function Header() {
                 New Order
             </Button>
 
-            <div className="h-6 w-px bg-border" />
+            <div className="h-6 w-px hidden sm:flex bg-border" />
 
             <Button onClick={() => setDarkMode(!darkMode)} variant="ghost" size="icon" className="rounded-xl">
                 {darkMode ? (
