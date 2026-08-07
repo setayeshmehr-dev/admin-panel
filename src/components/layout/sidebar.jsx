@@ -113,7 +113,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
     
     return (
         <aside style={{width: collapsed ? "75px" : "256px"}} className={`w-64 fixed lg:sticky z-50 transition-all  lg:top-0 lg:left-0 h-screen border-r flex flex-col border-border  duration-500 lg:transition-none bg-background ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
-            <Button onClick={()=> setCollapsed(!collapsed)} variant="ghost" className=" w-6! h-6 rounded-full bg-background border p-0 border-border absolute z-30 -right-3 top-20">
+            <Button onClick={()=> setCollapsed(!collapsed)} variant="ghost" className=" w-6! h-6 rounded-full hidden lg:flex bg-background border p-0 border-border absolute z-30 -right-3 top-20">
                 {collapsed ? (
                     <ChevronRight className="size-3 " />
                 ) : (
@@ -135,7 +135,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
             </Button>
             {/* /////////////////////////////////////////   NAV   ////////////////////////////////////////////////// */}
 
-            <nav className={`flex-1 min-h-0 overflow-y-auto px-4 py-4 ${collapsed ? "px-0!" : "px-4!"}`}>
+            <nav className={`flex-1 min-h-0 overflow-y-auto px-2 py-2 ${collapsed ? "px-0!" : "px-2!"}`}>
 
                 <Accordion multiple defaultValue={sidebarGroup.map((group) => group.group)}>
 

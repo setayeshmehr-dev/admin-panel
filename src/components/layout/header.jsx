@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar"
 
 import React, { useState } from 'react'
 
-export default function Header({setSidebarOpen}) {
+export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpen}) {
     const [darkMode, setDarkMode] = useState(false)
   return (
     <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 bg-background" >
@@ -17,10 +17,7 @@ export default function Header({setSidebarOpen}) {
             </Button>
 
 
-            <Button
-            variant="outline"
-            className="justify-between w-[288px] h-9 rounded-lg hidden sm:flex"
-            >
+            <Button onClick={()=> setSearchOpen(true)} variant="outline" className="justify-between w-[288px] h-9 rounded-lg hidden sm:flex">
                 <div className="flex items-center gap-2.5">
                     <Search className="size-4" />
                     <span>Search anything...</span>
@@ -47,7 +44,7 @@ export default function Header({setSidebarOpen}) {
                 )}
             </Button>
 
-            <Button variant="ghost" size="icon" className="rounded-xl">
+            <Button onClick={()=> setAppearanceOpen(true)} variant="ghost" size="icon" className="rounded-xl">
               <Palette className="size-4" />
             </Button>
 
