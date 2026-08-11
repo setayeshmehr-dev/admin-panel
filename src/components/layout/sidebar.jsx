@@ -122,7 +122,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
             </Button>
             {/* ///////////////////////////////////////////     Logo       /////////////////////////////////////////////////// */}
             <div className={`h-16 px-4 flex items-center justify-start border-b border-border shrink-0 ${collapsed ? " justify-center!" : " justify-start!"} `}>
-                <div className="flex bg-primary w-9 h-9 items-center justify-center rounded-lg "> 
+                <div className="flex bg-linear-to-br from-primary to-secondary from-25%  to-85% w-9 h-9 items-center justify-center rounded-lg "> 
                     <Zap className="size-4.5 text-white"></Zap>
                 </div>
                 <div className={`flex flex-col ps-2.5 ${collapsed ? "w-0 hidden opacity-0" : "w-auto flex opacity-100"} `}>
