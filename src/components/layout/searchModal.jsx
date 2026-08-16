@@ -27,8 +27,8 @@ export default function SearchModal({setSearchOpen}) {
             <div onClick={() => setSearchOpen(false)} className="fixed inset-0  z-50 flex items-center justify-center bg-black/40"></div>
 
 
-            <div onClick={(e)=> e.stopPropagation()} className=" fixed top-[50%] overflow-hidden left-[50%] translate-[-50%] z-60 w-[90%] max-w-xl rounded-xl bg-background shadow-xl border">
-                <div className="flex items-center gap-2 border-b fixed z-50 top-0 left-0 w-full bg-background  border-border px-4 pt-3 pb-1">
+            <div onClick={(e)=> e.stopPropagation()} className=" fixed top-[50%] overflow-hidden left-[50%] translate-[-50%] z-60 w-[90%]  max-w-127.5 rounded-xl bg-background shadow-xl border">
+                <div className="flex items-center gap-2 border-b  w-full bg-background  border-border px-4 pt-3 pb-1">
 
                     <Search className="size-6 text-muted-foreground"/>
 
@@ -40,7 +40,7 @@ export default function SearchModal({setSearchOpen}) {
 
                 </div>
 
-                <ScrollArea className=" h-87.5 px-4 mt-13">
+                <ScrollArea className="flex gap-1 px-4 h-87.5 ">
                     {
                         filteredPages.length > 0 ? (
 
@@ -62,9 +62,9 @@ export default function SearchModal({setSearchOpen}) {
 
                         ) : (
 
-                            <div className="h-full flex items-center justify-center">
-                                <p className="text-sm text-muted-foreground">
-                                    No results found
+                            <div className="w-full h-full flex items-center justify-center">
+                                <p className="text-sm text-foreground">
+                                    No results found.
                                 </p>
                             </div>
 
@@ -80,19 +80,3 @@ export default function SearchModal({setSearchOpen}) {
     )
 }
 
-// {
-//     pages.map((item)=>{
-
-//         const Icon = item.icon;
-
-//         return (
-//             <Link onClick={()=>setSearchOpen(false)} href={item.href}  key={item.title} className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted cursor-pointer" >
-
-//                 <Icon className="size-4" />
-
-//                 <span> {item.title} </span>
-
-//             </Link>
-//         )
-//     })
-// }
