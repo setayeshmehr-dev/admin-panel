@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${inter.variable} ${jetbrains.variable} overscroll-none h-full antialiased`}
     >
-      <body className="min-h-full overscroll-none flex flex-col">{children}</body>
+      <body className="select-none min-h-full overscroll-none flex flex-col">{children}</body>
     </html>
   );
 }

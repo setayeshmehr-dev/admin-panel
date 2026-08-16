@@ -152,14 +152,18 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
 
                     <DropdownMenuSeparator />
 
-                    <DropdownMenuItem>
-                        <Settings />
-                        Settings
+                    <DropdownMenuItem >
+                        <Link href="/settings"  className="w-full flex gap-2.5" >
+                            <Settings />
+                            Settings
+                        </Link>
                     </DropdownMenuItem>
 
                     <DropdownMenuItem>
-                        <Bell />
-                        Notifications
+                        <Link href="/notification" className="w-full flex gap-2.5" >
+                            <Bell />
+                            Notifications
+                        </Link>
                     </DropdownMenuItem>
 
                     <DropdownMenuSeparator />
