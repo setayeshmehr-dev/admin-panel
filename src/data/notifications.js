@@ -10,7 +10,7 @@ export const notifications = [
     title: "New order received",
     description: "Order #1024 has been created",
     time: "2 minutes ago",
-    unread: true,
+    unread: false,
     icon: UserPlus
   },
   {
@@ -34,7 +34,7 @@ export const notifications = [
     title: "New order received",
     description: "Order #1024 has been created",
     time: "2 minutes ago",
-    unread: true,
+    unread: false,
     icon: UserPlus
   },
   {

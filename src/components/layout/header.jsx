@@ -87,10 +87,10 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                     <ScrollArea className=" h-80 " >
 
                         <div>
-                            {notifications.map((item)=>{
+                            {notifications.slice(0, 5).map((item)=>{
                                 const Icon = item.icon
                                 return(
-                                    <div key={item.id} className={`relative flex gap-3 items-center px-4 py-3 hover:bg-primary/30 transition-colors ${item.unread ? "bg-primary/20" : ""} cursor-pointer `} >
+                                    <Link onClick={() => setNotificationOpen(false)} href="/notification" key={item.id} className={`relative flex gap-3 items-center px-4 py-3 hover:bg-primary/30 transition-colors ${item.unread ? "bg-primary/20" : ""} cursor-pointer `} >
 
                                         { item.unread && <span className=" absolute right-5 top-1/2 translate-y-[-50%] items-center size-2 rounded-full bg-primary " /> }
 
@@ -104,7 +104,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                                             <p className=" text-xs text-muted-foreground " > {item.time} </p>
                                         </div>
 
-                                    </div>
+                                    </Link>
                                 )
                             })}
                         </div>
