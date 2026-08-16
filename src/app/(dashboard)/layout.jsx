@@ -6,7 +6,7 @@ import SearchModal from '@/components/layout/searchModal'
 import Appearance from '@/components/layout/appearance'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DashboardLayout({ children }) {
 
@@ -16,6 +16,30 @@ export default function DashboardLayout({ children }) {
   const isCollapsed = isDesktop && collapsed;
   const [searchOpen, setSearchOpen] = useState(false)
   const [appearanceOpen, setAppearanceOpen] = useState(false)
+
+  useEffect(() => {
+
+    const handleKeyDown = (e) => {
+
+        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+
+            e.preventDefault();
+
+            setSearchOpen(true);
+
+        }
+
+    };
+
+
+    window.addEventListener("keydown", handleKeyDown);
+
+
+    return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+    };
+
+}, []);
 
   return (
     <div className="flex min-h-screen">
