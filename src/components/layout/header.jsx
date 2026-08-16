@@ -12,13 +12,16 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
 import React, { useState } from 'react'
-import { notifications } from "@/data/notifications";
+import Link from "next/link";
+
+import { useNotifications } from "@/context/notificationContext";
 
 
 
 export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpen}) {
     const [darkMode, setDarkMode] = useState(false)
-    const unreadCount = notifications.filter((item)=>item.unread).length
+    const { notifications, unreadCount, markAllAsRead} = useNotifications();
+    const [notificationOpen, setNotificationOpen] = useState(false);
   return (
     <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 bg-background" >
         <div className=" flex gap-2.5 ">
@@ -55,14 +58,14 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
               <Palette className="size-4" />
             </Button>
 
-            <Popover>
+            <Popover open={notificationOpen} onOpenChange={setNotificationOpen}>
 
-                <PopoverTrigger className=" relative inline-flex size-9 items-center justify-center rounded-xl hover:bg-muted">
+                <PopoverTrigger className=" **:select-none relative inline-flex size-9 items-center justify-center rounded-xl hover:bg-muted">
                     <Bell className="size-5"/>
                     { unreadCount > 0 && <span className=" absolute right-1 top-1 flex size-4 items-center justify-center rounded-full bg-primary text-[10px] text-primary-foreground font-medium " > {unreadCount} </span> }
                 </PopoverTrigger>
 
-                <PopoverContent align="end" className=" w-[calc(100vw-2rem)] max-w-95 p-0 overflow-hidden " >
+                <PopoverContent align="end" className="**:select-none w-[calc(100vw-2rem)] max-w-95 p-0 overflow-hidden " >
 
                     {/* Header */}
 
@@ -71,7 +74,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                             <h3 className=" font-semibold text-sm " > Notifications </h3>
                             <Badge className="bg-primary/20 rounded-full text-xs font-semibold text-primary " > {unreadCount} </Badge>
                         </div>
-                        <div className="flex gap-1 text-muted-foreground hover:text-foreground text-xs cursor-pointer">
+                        <div onClick={markAllAsRead} className="flex gap-1 text-muted-foreground hover:text-foreground text-xs cursor-pointer">
                             <CheckCheck className="size-4" />
                             <span className="  " > Mark all read </span>
                         </div>
@@ -112,9 +115,9 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
 
                     {/* Footer */}
 
-                    <div className=" w-full p-3" >
-                        <span className="w-full flex justify-center items-center text-primary" > Show all notifications </span>
-                    </div>
+                    <Link onClick={() => setNotificationOpen(false)} href="/notification" className=" w-full p-3 cursor-pointer hover:bg-primary/5" >
+                        <span className="w-full flex  justify-center items-center text-primary" > Show all notifications </span>
+                    </Link>
 
 
                 </PopoverContent>

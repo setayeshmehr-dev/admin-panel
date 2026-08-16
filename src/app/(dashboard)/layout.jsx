@@ -5,6 +5,7 @@ import Sidebar from "../../components/layout/sidebar"
 import SearchModal from '@/components/layout/searchModal'
 import Appearance from '@/components/layout/appearance'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { NotificationProvider } from "@/context/notificationContext";
 
 import { useState, useEffect } from "react";
 
@@ -42,29 +43,31 @@ export default function DashboardLayout({ children }) {
 }, []);
 
   return (
-    <div className="flex min-h-screen">
+    <NotificationProvider>
+      <div className="flex min-h-screen">
 
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} collapsed={isCollapsed} setCollapsed={setCollapsed}/>
-        <div onClick={() => setSidebarOpen(false)} className={`fixed inset-0 transition-opacity duration-300 z-40 bg-black/40  lg:hidden ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}/>
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} collapsed={isCollapsed} setCollapsed={setCollapsed}/>
+          <div onClick={() => setSidebarOpen(false)} className={`fixed inset-0 transition-opacity duration-300 z-40 bg-black/40  lg:hidden ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}/>
 
-        <div className="flex-1 transition-all duration-500">
+          <div className="flex-1 transition-all duration-500">
 
-          <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen}/>
+            <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen}/>
 
-          <main className='p-52'>
-            {children}
-          </main>
+            <main className='p-52'>
+              {children}
+            </main>
+
+        </div>
+        {searchOpen && (
+          <SearchModal setSearchOpen={setSearchOpen} />
+        )}
+
+        {appearanceOpen && (
+          <Appearance appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
+        )}
 
       </div>
-      {searchOpen && (
-        <SearchModal setSearchOpen={setSearchOpen} />
-      )}
-
-      {appearanceOpen && (
-        <Appearance appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
-      )}
-
-    </div>
+    </NotificationProvider>
   );
 }
 
