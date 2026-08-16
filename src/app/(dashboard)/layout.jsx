@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }) {
 
           <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen}/>
 
-          <main>
+          <main className='p-52'>
             {children}
           </main>
 

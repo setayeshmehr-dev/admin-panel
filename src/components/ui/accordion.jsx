@@ -11,7 +11,7 @@ function Accordion({
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
-      className={cn("flex w-full flex-col overflow-hidden [&>*:last-child]:border-y ", className)}
+      className={cn("flex w-full flex-col overflow-hidden ", className)}
       {...props} />
   );
 }

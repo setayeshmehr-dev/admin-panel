@@ -6,7 +6,7 @@ import {AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui
 export default function SidebarGroup({ group, items, collapsed }) {
     return (
         <>
-            {collapsed ? (items.map((item) => (<SidebarItem key={item.title} icon={item.icon} title={item.title} collapsed={collapsed}/>))
+            {collapsed ? (items.map((item) => (<SidebarItem key={item.title} href={item.href} icon={item.icon} title={item.title} collapsed={collapsed}/>))
             ) : (
                 <AccordionItem value={group}>
 
@@ -20,7 +20,7 @@ export default function SidebarGroup({ group, items, collapsed }) {
                 <div className="flex flex-col gap-1">
 
                 {items.map((item) => (
-                    <SidebarItem key={item.title} icon={item.icon} collapsed={collapsed} title={item.title}/>
+                    <SidebarItem key={item.title} icon={item.icon} collapsed={collapsed} href={item.href} title={item.title}/>
                 ))}
 
                 </div>

@@ -139,3 +139,7 @@ body {
 code {
   font-family: var(--font-mono), monospace;
 }
+
+a {
+  text-decoration: none;
+}

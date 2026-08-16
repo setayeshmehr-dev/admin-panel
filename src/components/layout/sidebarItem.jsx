@@ -1,13 +1,14 @@
 import React from 'react'
+import Link from "next/link";
 
-export default function SidebarItem({ icon: Icon, title, collapsed }) {
+export default function SidebarItem({ icon: Icon, title, collapsed , href}) {
   return (
-      <div className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted cursor-pointer ${collapsed ? "mx-4 my-2 py-3! aspect-square justify-center " : " justify-normal aspect-auto py-2! "}`}>
+      <Link href={href} className={` flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-muted ${collapsed ? "mx-4 my-2 py-3! aspect-square justify-center " : " justify-normal aspect-auto py-2! "} `} >
 
-        <Icon className={collapsed ? "size-4" : "size-4"} />
-        <span className={`text-sm ${collapsed ? "hidden" : "flex"}`}>{title}</span>
+            <Icon className="size-4" />
+            {!collapsed && (<span className='text-sm '>{title}</span>)}
 
-      </div>
+      </Link>
   );
 }
 

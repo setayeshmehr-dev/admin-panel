@@ -5,9 +5,7 @@ import {
     X, 
     LayoutDashboard, 
     ChartColumn, 
-    Store, 
-    Handshake, 
-    Rocket, 
+    Handshake,  
     ChartNoAxesCombined, 
     ShoppingCart, 
     Package, 
@@ -15,19 +13,9 @@ import {
     FileText, 
     Mail, 
     MessageSquare, 
-    FolderOpen, 
     Kanban, 
     Calendar, 
     ListChecks, 
-    FileInput, 
-    Map, 
-    ToggleLeft, 
-    CloudUpload, 
-    Activity, 
-    MessageSquareText, 
-    Timer, 
-    ScrollText, 
-    CreditCard, 
     UserRoundCog, 
     Bell, 
     Settings, 
@@ -48,41 +36,41 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
     {
         group: "OVERVIEW",
         items: [
-            {title: "Dashboard", icon: LayoutDashboard},
-            {title: "Analytics", icon: ChartColumn},
-            {title: "CRM", icon: Handshake},
-            {title: "Charts", icon: ChartNoAxesCombined}
+            {title: "Dashboard", icon: LayoutDashboard, href: "/"},
+            {title: "Analytics", icon: ChartColumn, href: "/analytics"},
+            {title: "CRM", icon: Handshake, href: "/crm"},
+            {title: "Charts", icon: ChartNoAxesCombined, href: "/charts"}
         ]
     },
 
     {
         group: "COMMERCE",
         items: [
-            {title: "Orders", icon: ShoppingCart},
-            {title: "Products", icon: Package},
-            {title: "Customers", icon: Users},
-            {title: "Invoices", icon: FileText}
+            {title: "Orders", icon: ShoppingCart, href: "/orders"},
+            {title: "Products", icon: Package, href: "/products"},
+            {title: "Customers", icon: Users, href: "/customers"},
+            {title: "Invoices", icon: FileText, href: "/invoices"}
         ]
     },
 
     {
         group: "APPS",
         items: [
-            {title: "Mail", icon: Mail},
-            {title: "Chat", icon: MessageSquare},
-            {title: "Kanban", icon: Kanban},
-            {title: "Calendar", icon: Calendar},
-            {title: "Wizard", icon: ListChecks},
+            {title: "Mail", icon: Mail, href: "/mail"},
+            {title: "Chat", icon: MessageSquare, href: "/chat"},
+            {title: "Kanban", icon: Kanban, href: "/kanban"},
+            {title: "Calendar", icon: Calendar, href: "/calendar"},
+            {title: "Wizard", icon: ListChecks, href: "/wizard"},
         ]
     },
 
     {
         group: "SYSTEM",
         items: [
-            {title: "Users", icon: UserRoundCog},
-            {title: "Notification", icon: Bell},
-            {title: "Settings", icon: Settings},
-            {title: "Help & Support", icon: CircleQuestionMark}
+            {title: "Users", icon: UserRoundCog, href: "/users"},
+            {title: "Notification", icon: Bell, href: "/notification"},
+            {title: "Settings", icon: Settings, href: "/settings"},
+            {title: "Help & Support", icon: CircleQuestionMark, href: "/helpAndSupport"}
         ]
 
     },
