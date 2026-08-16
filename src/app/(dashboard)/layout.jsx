@@ -15,7 +15,7 @@ export default function DashboardLayout({ children }) {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isCollapsed = isDesktop && collapsed;
   const [searchOpen, setSearchOpen] = useState(false)
-  const [appearance, setAppearanceOpen] = useState(false)
+  const [appearanceOpen, setAppearanceOpen] = useState(false)
 
   return (
     <div className="flex min-h-screen">
@@ -36,8 +36,8 @@ export default function DashboardLayout({ children }) {
         <SearchModal setSearchOpen={setSearchOpen} />
       )}
 
-      {appearance && (
-        <Appearance setAppearanceOpen={setAppearanceOpen} />
+      {appearanceOpen && (
+        <Appearance appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
       )}
 
     </div>

@@ -50,9 +50,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
         items: [
             {title: "Dashboard", icon: LayoutDashboard},
             {title: "Analytics", icon: ChartColumn},
-            {title: "eCommerce", icon: Store},
             {title: "CRM", icon: Handshake},
-            {title: "SaaS", icon: Rocket},
             {title: "Charts", icon: ChartNoAxesCombined}
         ]
     },
@@ -72,31 +70,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
         items: [
             {title: "Mail", icon: Mail},
             {title: "Chat", icon: MessageSquare},
-            {title: "Files", icon: FolderOpen},
             {title: "Kanban", icon: Kanban},
             {title: "Calendar", icon: Calendar},
             {title: "Wizard", icon: ListChecks},
-            {title: "Forms", icon: FileInput}
         ]
-    },
-
-    {
-        group: "DEV TOOLS",
-        items: [
-            {title: "Roadmap", icon: Map},
-            {title: "Feature Flags", icon: ToggleLeft},
-            {title: "Deployments", icon: CloudUpload},
-            {title: "Activity", icon: Activity},
-            {title: "Feedback", icon: MessageSquareText},
-            {title: "Sprints", icon: Timer},
-            {title: "Changelog", icon: ScrollText}
-        ]
-    },
-
-    {
-        group: "FINANCE",
-        items: [{title: "Billing", icon: CreditCard}]
-
     },
 
     {
