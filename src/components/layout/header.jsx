@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu,UserPlus ,CreditCard ,ShoppingCart , CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun, Plus } from "lucide-react";
+import { Menu, CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun,} from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger} from "@/components/ui/dropdown-menu"
@@ -12,81 +12,9 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
 import React, { useState } from 'react'
+import { notifications } from "@/data/notifications";
 
-const notifications = [
-  {
-    id: 1,
-    title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
-    unread: true,
-    icon: UserPlus
-  },
-  {
-    id: 2,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
-  },
-  {
-    id: 3,
-    title: "New customer registered",
-    description: "A new customer joined",
-    time: "1 hour ago",
-    unread: false,
-    icon: ShoppingCart
-  },
-  {
-    id: 4,
-    title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
-    unread: true,
-    icon: UserPlus
-  },
-  {
-    id: 5,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
-  },
-  {
-    id: 6,
-    title: "New customer registered",
-    description: "A new customer joined",
-    time: "1 hour ago",
-    unread: false,
-    icon: ShoppingCart
-  },
-  {
-    id: 7,
-    title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
-    unread: true,
-    icon: UserPlus
-  },
-  {
-    id: 8,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
-  },
-  {
-    id: 9,
-    title: "New customer registered",
-    description: "A new customer joined",
-    time: "1 hour ago",
-    unread: false,
-    icon: ShoppingCart
-  },
-]
+
 
 export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpen}) {
     const [darkMode, setDarkMode] = useState(false)
