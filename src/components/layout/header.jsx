@@ -12,6 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
 import React, { useState } from 'react'
+import { useTheme } from "next-themes"
 import Link from "next/link";
 
 import { useNotifications } from "@/context/notificationContext";
@@ -22,6 +23,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
     const [darkMode, setDarkMode] = useState(false)
     const { notifications, unreadCount, markAllAsRead} = useNotifications();
     const [notificationOpen, setNotificationOpen] = useState(false);
+    const { theme, setTheme } = useTheme()
   return (
     <header className="w-full h-16 px-6 flex bg-background/80 backdrop-blur-lg backdrop-saturate-180 items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 " >
         <div className=" flex gap-2.5 ">
@@ -55,8 +57,8 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
 
             <div className="h-6 w-px hidden sm:flex bg-border" />
 
-            <Button onClick={() => setDarkMode(!darkMode)} variant="ghost" size="icon" className="rounded-xl">
-                {darkMode ? (
+            <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} variant="ghost" size="icon" className="rounded-xl">
+                {theme === "dark" ? (
                     <Sun className="size-4" />
                 ) : (
                     <Moon className="size-4" />

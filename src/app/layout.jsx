@@ -1,5 +1,6 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/themeProvider"
 
 
 
@@ -14,11 +15,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${jetbrains.variable} overscroll-none h-full antialiased`}
-    >
-      <body className="select-none min-h-full overscroll-none flex flex-col">{children}</body>
+    <html suppressHydrationWarning lang="en" className={`${inter.variable} ${jetbrains.variable} overscroll-none h-full antialiased`}>
+      <body className="select-none min-h-full overscroll-none flex flex-col">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

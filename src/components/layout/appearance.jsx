@@ -1,16 +1,24 @@
 'use client'
 import {Moon, Sun, Monitor, PanelLeft , PanelTop, X} from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppearanceItem from "@/components/layout/appearanceItem";
 import AppearanceColorItem from "@/components/layout/appearanceColorItem";
+import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button";
 
 
 export default function Appearance({setAppearanceOpen, setLayoutMode, layoutMode}) {
 
-    const [theme, setTheme] = useState("light");
-    const [color, setColor] = useState("violet");
+
+    const [color, setColor] = useState(() => {
+        return document.documentElement.dataset.colorPreset || "violet"
+    })
+    const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+        document.documentElement.dataset.colorPreset = color
+    }, [color])
 
     return (
         <>
