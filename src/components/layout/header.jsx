@@ -130,7 +130,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                     render={
                         <button className="rounded-full outline-none">
                             <Avatar className="cursor-pointer">
-                                <AvatarFallback className="bg-linear-to-br from-primary from-25%  to-85% font-semibold to-secondary text-primary-foreground">
+                                <AvatarFallback className="bg-linear-to-br from-primary from-25%  to-85%  to-secondary font-semibold text-primary-foreground">
                                     AS
                                 </AvatarFallback>
                             </Avatar>
@@ -169,8 +169,10 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                     <DropdownMenuSeparator />
 
                     <DropdownMenuItem variant="destructive">
-                        <LogOut />
-                        Log out
+                        <Link href="/login" className="w-full flex gap-2.5" >
+                            <LogOut />
+                            Log out
+                        </Link>
                     </DropdownMenuItem>
 
                 </DropdownMenuContent>
