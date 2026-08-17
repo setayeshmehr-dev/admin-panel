@@ -4,6 +4,7 @@ import Header from "../../components/layout/header"
 import Sidebar from "../../components/layout/sidebar"
 import SearchModal from '@/components/layout/searchModal'
 import Appearance from '@/components/layout/appearance'
+import TopNav from "@/components/layout/topNav"
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { NotificationProvider } from "@/context/notificationContext";
 
@@ -17,6 +18,7 @@ export default function DashboardLayout({ children }) {
   const isCollapsed = isDesktop && collapsed;
   const [searchOpen, setSearchOpen] = useState(false)
   const [appearanceOpen, setAppearanceOpen] = useState(false)
+  const [layoutMode, setLayoutMode] = useState("sidebar")
 
   useEffect(() => {
 
@@ -45,13 +47,18 @@ export default function DashboardLayout({ children }) {
   return (
     <NotificationProvider>
       <div className="flex min-h-screen">
-
-        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} collapsed={isCollapsed} setCollapsed={setCollapsed}/>
+        {layoutMode === "sidebar" && (
+          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} collapsed={isCollapsed} setCollapsed={setCollapsed}/>
+        )}
           <div onClick={() => setSidebarOpen(false)} className={`fixed inset-0 transition-opacity duration-300 z-40 bg-black/40  lg:hidden ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}/>
 
           <div className="flex-1 transition-all duration-500">
 
-            <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen}/>
+            <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen} layoutMode={layoutMode} />
+
+            {layoutMode === "topnav" && (
+              <TopNav />
+            )}
 
             <main className='p-52'>
               {children}
@@ -63,7 +70,7 @@ export default function DashboardLayout({ children }) {
         )}
 
         {appearanceOpen && (
-          <Appearance appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
+          <Appearance layoutMode={layoutMode} setLayoutMode={setLayoutMode} appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
         )}
 
       </div>

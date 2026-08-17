@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu, CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun,} from "lucide-react";
+import { Menu, CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun, User, Zap} from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger} from "@/components/ui/dropdown-menu"
@@ -18,17 +18,26 @@ import { useNotifications } from "@/context/notificationContext";
 
 
 
-export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpen}) {
+export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpen, layoutMode}) {
     const [darkMode, setDarkMode] = useState(false)
     const { notifications, unreadCount, markAllAsRead} = useNotifications();
     const [notificationOpen, setNotificationOpen] = useState(false);
   return (
-    <header className="w-full h-16 px-6 flex items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 bg-background" >
+    <header className="w-full h-16 px-6 flex bg-background/80 backdrop-blur-lg backdrop-saturate-180 items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 " >
         <div className=" flex gap-2.5 ">
             <Button onClick={()=> setSidebarOpen(true)} variant="ghost" size="icon" className=" lg:hidden rounded-xl">
                 <Menu className="size-5" />
             </Button>
 
+            {layoutMode === "topnav" && (
+                <div className={` flex items-center justify-start `}>
+                    <div className="flex bg-linear-to-br from-primary to-secondary from-25%  to-85% w-9 h-9 items-center justify-center rounded-lg "> 
+                        <Zap className="size-4.5 text-white"></Zap>
+                    </div>
+                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm ps-2.5 font-semibold">Apex</span>
+                    <div className="h-6 w-px mx-2.5 bg-border" />
+                </div>
+            )}
 
             <Button onClick={()=> setSearchOpen(true)} variant="outline" className="justify-between  w-52.5 md:w-[288px] h-9 rounded-lg hidden sm:flex">
                 <div className="flex text-muted-foreground items-center gap-2.5">
@@ -42,7 +51,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
         </div>
         <div className=" flex items-center gap-2 ">
 
-            <InteractiveHoverButton className="hidden text-[14px] sm:flex" >New order</InteractiveHoverButton>
+            <InteractiveHoverButton href="/orders/new" className="hidden text-[14px] sm:flex" >New order</InteractiveHoverButton>
 
             <div className="h-6 w-px hidden sm:flex bg-border" />
 
@@ -151,6 +160,13 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
                     </div>
 
                     <DropdownMenuSeparator />
+
+                    <DropdownMenuItem >
+                        <Link href="/profile"  className="w-full flex gap-2.5" >
+                            <User />
+                            Profile
+                        </Link>
+                    </DropdownMenuItem>
 
                     <DropdownMenuItem >
                         <Link href="/settings"  className="w-full flex gap-2.5" >

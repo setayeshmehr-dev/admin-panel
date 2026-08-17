@@ -28,7 +28,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
                     <Zap className="size-4.5 text-white"></Zap>
                 </div>
                 <div className={`flex flex-col ps-2.5 ${collapsed ? "w-0 hidden opacity-0" : "w-auto flex opacity-100"} `}>
-                    <span className="text-sm font-semibold text-foreground">Apex</span>
+                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm font-semibold">Apex</span>
                     <span className="text-xs text-muted-foreground">DASHBOARD</span>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
 
             </ScrollArea>
 
-            <div className={` h-18 border-t  border-border px-2 py-2 flex items-center gap-1 shrink-0 ${collapsed ? " justify-center!" : " justify-between!"} `}>
+            <div className={` h-18 border-t  border-border ps-4 pe-2 py-2 flex items-center gap-1 shrink-0 ${collapsed ? " justify-center!" : " justify-start!"} `}>
                 <Link href="/profile" className="hover:bg-muted cursor-pointer flex items-center justify-center px-3 py-2 rounded-[15px]">
                     <Avatar>
                         <AvatarFallback className="bg-linear-to-br from-primary from-25%  to-85%  to-secondary font-semibold text-primary-foreground">AS</AvatarFallback>
@@ -59,7 +59,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
                         <span className="text-[10px] text-muted-foreground">Admin</span>
                     </div>
                 </Link>
-                <Link href="/login" className=" hover:bg-muted cursor-pointer w-8! h-8 flex items-center justify-center rounded-full" >
+                <Link href="/login" className={` hover:bg-muted cursor-pointer w-8! h-8 ${collapsed ? "hidden" : " flex "} items-center justify-center rounded-full`} >
                     <LogOut className="size-4 text-muted-foreground" />
                 </Link>
 

@@ -1,19 +1,15 @@
 import { Plus } from "lucide-react"
-
+import Link from "next/link"
 import { cn } from "@/lib/utils"
 
 export function InteractiveHoverButton({
   children,
   className,
+  href,
   ...props
 }) {
   return (
-    <button
-      className={cn(
-        "group bg-background relative w-auto text-[16px] cursor-pointer overflow-hidden rounded-xl border p-2 px-6 text-center font-semibold",
-        className
-      )}
-      {...props}>
+    <Link href={href}className={cn("group bg-background relative w-auto text-[16px] cursor-pointer overflow-hidden rounded-xl border p-2 px-6 text-center font-semibold",className)}{...props}>
       <div className="flex items-center justify-center gap-2">
         <div
           className="bg-linear-to-r from-primary from-35%  to-65% to-secondary h-2 w-2 rounded-full transition-all duration-300 group-hover:scale-[100.8]"></div>
@@ -27,6 +23,6 @@ export function InteractiveHoverButton({
         <span>{children}</span>
         <Plus className="size-4" />
       </div>
-    </button>
+    </Link>
   );
 }

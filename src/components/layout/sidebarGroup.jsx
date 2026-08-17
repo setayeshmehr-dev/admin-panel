@@ -10,7 +10,7 @@ export default function SidebarGroup({ group, items, collapsed }) {
             ) : (
                 <AccordionItem value={group}>
 
-                <AccordionTrigger className={`px-3 text-xs text-muted-foreground hover:no-underline ${collapsed ? "hidden ": "flex"}`}>
+                <AccordionTrigger className={`px-3 text-xs text-muted-foreground hover:text-foreground hover:no-underline ${collapsed ? "hidden ": "flex"}`}>
                     {group}
                 </AccordionTrigger>
 

@@ -7,11 +7,10 @@ import AppearanceColorItem from "@/components/layout/appearanceColorItem";
 import { Button } from "@/components/ui/button";
 
 
-export default function Appearance({setAppearanceOpen, appearanceOpen}) {
+export default function Appearance({setAppearanceOpen, setLayoutMode, layoutMode}) {
 
     const [theme, setTheme] = useState("light");
     const [color, setColor] = useState("violet");
-    const [layout, setLayout] = useState("sidebar");
 
     return (
         <>
@@ -58,9 +57,9 @@ export default function Appearance({setAppearanceOpen, appearanceOpen}) {
 
                 <div className='hidden md:flex h-auto gap-2 mt-2'>
 
-                    <AppearanceItem active={layout === "sidebar"} onClick={() => setLayout("sidebar")} icon={PanelLeft} label="Sidebar"/>
+                    <AppearanceItem active={layoutMode === "sidebar"} onClick={() => setLayoutMode("sidebar")} icon={PanelLeft} label="Sidebar"/>
 
-                    <AppearanceItem active={layout === "top"} onClick={() => setLayout("top")} icon={PanelTop} label="Top Nav"/>
+                    <AppearanceItem active={layoutMode === "topnav"} onClick={() => setLayoutMode("topnav")} icon={PanelTop} label="Top Nav"/>
 
                 </div>
             </div>
@@ -68,36 +67,5 @@ export default function Appearance({setAppearanceOpen, appearanceOpen}) {
     )
 }
 
-
-        //    <div className=''>
-        //                     <div className="w-8 top-3 absolute aspect-square rounded-full border-2 border-background bg-[#009048]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#009048]" ></div>
-        //                     <span className=" absolute bottom-4" >Emerald</span>
-        //                 </div>
-        //                 <div className=''>
-        //                     <div className="w-8 top-3 absolute aspect-square rounded-full border-2 border-background bg-[#0079d3]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#0079d3]" ></div>
-        //                     <span className=" absolute bottom-4" >Blue</span>
-        //                 </div>
-        //                 <div className=''>
-        //                     <div className="w-8 top-3 absolute aspect-square rounded-full border-2 border-background bg-[#615cdc]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#615cdc]" ></div>
-        //                     <span className=" absolute bottom-4" >Violet</span>
-        //                 </div>
-        //                 <div className=''>
-        //                     <div className="w-8 top-3 absolute aspect-square rounded-full border-2 border-background bg-[#bb3181]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#bb3181]" ></div>
-        //                     <span className=" absolute bottom-4" >Rose</span>
-        //                 </div>
-        //                 <div className=''>
-        //                     <div className="w-8 top-3 absolute aspect-square rounded-full border-2 border-background bg-[#bb3131]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#ae0000]" ></div>
-        //                     <span className=" absolute bottom-4" >Red</span>
-        //                 </div>
-        //                 <div className=''>
-        //                     <div className="w-8  top-3 absolute aspect-square rounded-full border-2 border-background bg-[#6a727e]/80" ></div>
-        //                     <div className="w-6 top-4 absolute aspect-square rounded-full border-2 border-background bg-[#6a727e]" ></div>
-        //                     <span className=" absolute bottom-4" >Slate</span>
-        //                 </div>
 
 
