@@ -11,7 +11,7 @@ import { Separator } from "@/components/ui/separator"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button"
 
-import React, { useState } from 'react'
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes"
 import Link from "next/link";
 
@@ -24,6 +24,11 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
     const { notifications, unreadCount, markAllAsRead} = useNotifications();
     const [notificationOpen, setNotificationOpen] = useState(false);
     const { theme, setTheme } = useTheme()
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+    setMounted(true);
+    }, []);
   return (
     <header className="w-full h-16 px-6 flex bg-background/80 backdrop-blur-lg backdrop-saturate-180 items-center justify-between border-b border-border z-30 sticky top-0 left-0 right-0 " >
         <div className=" flex gap-2.5 ">
@@ -56,14 +61,15 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
             <InteractiveHoverButton href="/orders/new" className="hidden text-[14px] sm:flex" >New order</InteractiveHoverButton>
 
             <div className="h-6 w-px hidden sm:flex bg-border" />
-
-            <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} variant="ghost" size="icon" className="rounded-xl">
-                {theme === "dark" ? (
-                    <Sun className="size-4" />
-                ) : (
-                    <Moon className="size-4" />
-                )}
-            </Button>
+            {mounted && (
+                <Button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} variant="ghost" size="icon" className="rounded-xl">
+                    {theme === "dark" ? (
+                        <Sun className="size-4" />
+                    ) : (
+                        <Moon className="size-4" />
+                    )}
+                </Button>
+            )}
 
             <Button onClick={()=> setAppearanceOpen(true)} variant="ghost" size="icon" className="rounded-xl">
               <Palette className="size-4" />

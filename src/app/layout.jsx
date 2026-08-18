@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html suppressHydrationWarning lang="en" className={`${inter.variable} ${jetbrains.variable} overscroll-none h-full antialiased`}>
-      <body className="select-none min-h-full overscroll-none flex flex-col">
+      <body className=" min-h-full overscroll-none flex flex-col">
         <ThemeProvider>
           {children}
         </ThemeProvider>
