@@ -12,7 +12,7 @@ export default function Appearance({setAppearanceOpen, setLayoutMode, layoutMode
 
 
     const [color, setColor] = useState(() => {
-        return document.documentElement.dataset.colorPreset || "violet"
+        return document.documentElement.dataset.colorPreset || "red"
     })
     const { theme, setTheme } = useTheme()
 
@@ -53,12 +53,12 @@ export default function Appearance({setAppearanceOpen, setLayoutMode, layoutMode
 
                 <span className='font-semibold text-[14px]' >Color</span>
                 <div className='flex h-auto *:md:w-[31%] *:lg:w-[48%] mb-10 md:mb-5 lg:mb-10 mt-2 flex-wrap gap-2'>
-                        <AppearanceColorItem active={color === "emerald"} onClick={() => setColor("emerald")} color="#009048" label="Emerald" />
+                        <AppearanceColorItem active={color === "slate"} onClick={() => setColor("slate")} color="#6a727e" label="Slate" />
                         <AppearanceColorItem active={color === "blue"} onClick={() => setColor("blue")} color="#0079d3" label="Blue" />
                         <AppearanceColorItem active={color === "violet"} onClick={() => setColor("violet")} color="#615cdc" label="Violet" />
                         <AppearanceColorItem active={color === "rose"} onClick={() => setColor("rose")} color="#bb3181" label="Rose" />
+                        <AppearanceColorItem active={color === "orange"} onClick={() => setColor("orange")} color="oklch(71.867% 0.19168 49.367)" label="Orange" />
                         <AppearanceColorItem active={color === "red"} onClick={() => setColor("red")} color="#ae0000" label="Red" />
-                        <AppearanceColorItem active={color === "slate"} onClick={() => setColor("slate")} color="#6a727e" label="Slate" />
                 </div>
 
                 <span className=' hidden md:flex font-semibold text-[14px] mt-10 md:mt-5 lg:mt-10' >Layout</span>

@@ -1,8 +1,11 @@
 import React from 'react'
-import { Zap, UsersRound, Rocket, Activity, TrendingUp} from 'lucide-react'
+import { Zap, UsersRound, Rocket, Activity, TrendingUp, TrendingDown} from 'lucide-react'
 import RevenueChart from "@/components/dashboard/OverviewChart"
-import { Button } from "../../components/ui/button"
-import { ButtonGroup } from "../../components/ui/button-group"
+import SprintProgress from "@/components/dashboard/SprintProgress"
+import TeamActivity from '@/components/dashboard/TeamActivity'
+import RecentDeployments from "@/components/dashboard/RecentDeployments"
+import FeatureAdoption from "@/components/dashboard/FeatureAdoption"
+
 
 
 export default function page() {
@@ -20,7 +23,7 @@ export default function page() {
             <span className=' text-2xl font-bold text-white'>$48.2k</span>
             <div className='mt-1 flex items-center gap-1'>
               <TrendingUp className=' size-3'/>
-              <span className='text-xs font-medium text-emerald-300'>+12.4%</span>
+              <span className='text-xs font-medium text-[#34d399]'>+12.4%</span>
               <span className='text-xs text-white/80!'>vs last month</span>
             </div>
           </div>
@@ -32,7 +35,7 @@ export default function page() {
             <span className=' text-2xl font-bold text-white'>12,847</span>
             <div className='mt-1 flex items-center gap-1'>
               <TrendingUp className=' size-3'/>
-              <span className='text-xs font-medium text-emerald-300'>+8.2%</span>
+              <span className='text-xs font-medium text-[#34d399]'>+8.2%</span>
               <span className='text-xs text-white/80!'>vs last month</span>
             </div>
           </div>
@@ -43,8 +46,8 @@ export default function page() {
             </div>
             <span className=' text-2xl font-bold text-white'>342</span>
             <div className='mt-1 flex items-center gap-1'>
-              <TrendingUp className=' size-3'/>
-              <span className='text-xs font-medium text-emerald-300'>+24.1%</span>
+              <TrendingDown className=' size-3'/>
+              <span className='text-xs font-medium text-[#ff5c5c]'>-24.1%</span>
               <span className='text-xs text-white/80!'>vs last month</span>
             </div>
           </div>
@@ -53,17 +56,27 @@ export default function page() {
               <Activity  className='size-4 ' />
               <span className='text-xs font-medium'>Uptime</span>
             </div>
-            <span className=' text-2xl font-bold text-white'>99.98%</span>
+            <span className=' text-2xl font-bold text-white'>96.98%</span>
             <div className='mt-1 flex items-center gap-1'>
-              <TrendingUp className=' size-3'/>
-              <span className='text-xs font-medium text-emerald-300'>+0.02%</span>
+              <TrendingDown className=' size-3'/>
+              <span className='text-xs font-medium text-[#ff5c5c]'>-2.02%</span>
               <span className='text-xs text-white/70!'>vs last month</span>
             </div>
           </div>
           
         </div>
       </div>
-      <RevenueChart />
+      <div className='mt-6 grid grid-cols-1 gap-4 xl:grid-cols-12'>
+        <RevenueChart />
+        <div className='col-span-full flex flex-col gap-4 xl:col-span-5'>
+          <SprintProgress />
+          <TeamActivity />
+        </div>
+      </div>
+      <div className='mt-6 grid grid-cols-1 gap-4 xl:grid-cols-12'>
+        <RecentDeployments />
+        <FeatureAdoption />
+      </div>
     </div>
 
 

@@ -14,31 +14,31 @@ const chartData = {
     { month: "Mar", value: 19800 },
     { month: "Apr", value: 27400 },
     { month: "May", value: 25100 },
-    { month: "Jun", value: 31200 },
-    { month: "Jul", value: 36800 },
-    { month: "Aug", value: 34200 },
+    { month: "Jun", value: 36200 },
+    { month: "Jul", value: 31800 },
+    { month: "Aug", value: 48200 },
   ],
 
   profit: [
-    { month: "Jan", value: 8200 },
+    { month: "Jan", value: 28200 },
     { month: "Feb", value: 10400 },
-    { month: "Mar", value: 9100 },
-    { month: "Apr", value: 12600 },
-    { month: "May", value: 11800 },
-    { month: "Jun", value: 15400 },
-    { month: "Jul", value: 18200 },
-    { month: "Aug", value: 16900 },
+    { month: "Mar", value: 29100 },
+    { month: "Apr", value: 22600 },
+    { month: "May", value: 31800 },
+    { month: "Jun", value: 25400 },
+    { month: "Jul", value: 38200 },
+    { month: "Aug", value: 46900 },
   ],
 
   orders: [
-    { month: "Jan", value: 320 },
-    { month: "Feb", value: 410 },
-    { month: "Mar", value: 365 },
-    { month: "Apr", value: 490 },
-    { month: "May", value: 450 },
-    { month: "Jun", value: 580 },
-    { month: "Jul", value: 640 },
-    { month: "Aug", value: 610 },
+    { month: "Jan", value: 220 },
+    { month: "Feb", value: 310 },
+    { month: "Mar", value: 265 },
+    { month: "Apr", value: 390 },
+    { month: "May", value: 350 },
+    { month: "Jun", value: 480 },
+    { month: "Jul", value: 540 },
+    { month: "Aug", value: 510 },
   ],
 }
 
@@ -55,7 +55,7 @@ export default function OverviewChart() {
   const data = chartData[activeChart]
 
   return (
-    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 col-span-full xl:col-span-7 flux-shadow rounded-2xl border bg-card mt-6 p-6">
+    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 col-span-full xl:col-span-7 rounded-2xl border bg-card  p-6">
 
       {/* Header */}
       <div className="mb-6 flex items-center justify-between">
@@ -87,10 +87,9 @@ export default function OverviewChart() {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => {
-                if (activeChart === "orders") {return value}
-                return `$${value / 1000}k`
-              }}
+              domain={[0, 800]}
+              ticks={[0, 200, 400, 600, 800]}
+              tickFormatter={(value) => `${value}`}
             />
 
             <ChartTooltip cursor={false} content={<ChartTooltipContent />}/>
@@ -102,22 +101,20 @@ export default function OverviewChart() {
         ) : (
 
           <AreaChart accessibilityLayer data={data} margin={{ left: 12, right: 12,}}>
+            <defs>
+              <linearGradient id={`${activeChart}Gradient`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={`var(--color-${activeChart})`} stopOpacity={0.55}/>
+                <stop offset="100%" stopColor={`var(--color-${activeChart})`} stopOpacity={0}/>
+              </linearGradient>
+            </defs>
             <CartesianGrid vertical={false} />
 
             <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8}/>
 
-            <YAxis
-              tickLine={false}
-              axisLine={false}
-              tickMargin={8}
-              tickFormatter={(value) => {
-                if (activeChart === "orders") {return value}
-                return `$${value / 1000}k`
-              }}
-            />
+            <YAxis tickLine={false} axisLine={false} tickMargin={8} domain={[0, 60000]} ticks={[0, 15000, 30000, 45000, 60000]} tickFormatter={(value) => `${value / 1000}k`}/>
 
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Area dataKey="value" type="natural" fill={activeChart === "revenue" ? "var(--color-revenue)" : "var(--color-profit)"} fillOpacity={0.2} stroke={activeChart === "revenue" ? "var(--color-revenue)" : "var(--color-profit)"} strokeWidth={2}/>
+            <Area dataKey="value" type="natural" fill={`url(#${activeChart}Gradient)`} stroke={`var(--color-${activeChart})`} strokeWidth={2}/>
           </AreaChart>
 
         )}

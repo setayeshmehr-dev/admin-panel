@@ -55,9 +55,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(55.045% 0.18749 278.998);
+  --primary: oklch(55% 0.2 25);
   --primary-foreground: oklch(0.969 0.016 293.756);
-  --secondary: oklch(56.652% 0.17998 253.944);
+  --secondary: oklch(84.743% 0.168 85.589);
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -127,16 +127,21 @@
   --secondary: oklch(80.729% 0.11735 232.563);
 }
 
-:root[data-color-preset="emerald"] {
-  --primary: oklch(55% 0.17 160);
+/* :root[data-color-preset="emerald"] {
+  --primary: oklch(50.252% 0.14275 133.424);
   --primary-foreground: oklch(98.514% 0.01047 112.59);
-  --secondary: oklch(87.237% 0.13231 122.217);
+  --secondary: oklch(80.428% 0.11679 121.584);
+} */
+:root[data-color-preset="orange"] {
+  --primary: oklch(71.867% 0.19168 49.367);
+  --primary-foreground: oklch(98.514% 0.01047 112.59);
+  --secondary: oklch(35.57% 0.0434 47.415);
 }
 
 :root[data-color-preset="rose"] {
   --primary: oklch(55% 0.2 350);
   --primary-foreground: oklch(0.98 0.01 350);
-  --secondary: oklch(81.309% 0.13303 343.963);
+  --secondary: oklch(90.038% 0.06813 341.789);
 }
 
 :root[data-color-preset="red"] {
@@ -146,9 +151,9 @@
 }
 
 :root[data-color-preset="slate"] {
-  --primary: oklch(47.966% 0.02784 250.393);
+  --primary: oklch(46.76% 0.00005 271.152);
   --primary-foreground: oklch(0.98 0.01 250);
-  --secondary: oklch(85.846% 0.00613 240.313);
+  --secondary: oklch(69.601% 0.00008 271.152);
 }
 
 @layer base {
