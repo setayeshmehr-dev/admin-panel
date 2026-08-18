@@ -13,7 +13,7 @@ export default function TopNav() {
   const [openGroup, setOpenGroup] = useState(null)
 
   return (
-    <nav className="sticky top-0 z-30 h-14 border-b bg-background/80 px-6 backdrop-blur-xl ps-6 pe-8 ">
+    <nav className="fixed top-16 w-full z-30 h-14 border-b bg-background/80 px-6 backdrop-blur-xl ps-6 pe-8 ">
 
         <div className="flex h-full items-center gap-6 [&>*:last-child]:ml-auto">
 

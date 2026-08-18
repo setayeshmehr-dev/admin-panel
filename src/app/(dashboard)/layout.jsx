@@ -60,7 +60,7 @@ export default function DashboardLayout({ children }) {
               <TopNav />
             )}
 
-            <main className='p-52'>
+            <main className='p-6'>
               {children}
             </main>
 
