@@ -118,13 +118,13 @@
 :root[data-color-preset="violet"] {
   --primary: oklch(55.045% 0.18749 278.998);
   --primary-foreground: oklch(0.969 0.016 293.756);
-  --secondary: oklch(80.296% 0.12313 309.99);
+  --secondary: oklch(51.736% 0.13879 308.617);
 }
 
 :root[data-color-preset="blue"] {
-  --primary: oklch(55% 0.19 250);
+  --primary: oklch(74.618% 0.14111 244.272);
   --primary-foreground: oklch(0.98 0.01 250);
-  --secondary: oklch(80.729% 0.11735 232.563);
+  --secondary: oklch(31.809% 0.12085 258.585);
 }
 
 /* :root[data-color-preset="emerald"] {
@@ -139,9 +139,9 @@
 }
 
 :root[data-color-preset="rose"] {
-  --primary: oklch(55% 0.2 350);
+  --primary: oklch(80.266% 0.1443 344.18);
   --primary-foreground: oklch(0.98 0.01 350);
-  --secondary: oklch(90.038% 0.06813 341.789);
+  --secondary: oklch(55% 0.2 350);
 }
 
 :root[data-color-preset="red"] {

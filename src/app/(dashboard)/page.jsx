@@ -46,8 +46,8 @@ export default function page() {
             </div>
             <span className=' text-2xl font-bold text-white'>342</span>
             <div className='mt-1 flex items-center gap-1'>
-              <TrendingDown className=' size-3'/>
-              <span className='text-xs font-medium text-[#ff5c5c]'>-24.1%</span>
+              <TrendingUp className=' size-3'/>
+              <span className='text-xs font-medium text-[#34d399]'>+24.1%</span>
               <span className='text-xs text-white/80!'>vs last month</span>
             </div>
           </div>
@@ -58,8 +58,8 @@ export default function page() {
             </div>
             <span className=' text-2xl font-bold text-white'>96.98%</span>
             <div className='mt-1 flex items-center gap-1'>
-              <TrendingDown className=' size-3'/>
-              <span className='text-xs font-medium text-[#ff5c5c]'>-2.02%</span>
+              <TrendingUp className=' size-3'/>
+              <span className='text-xs font-medium text-[#34d399]'>+2.02%</span>
               <span className='text-xs text-white/70!'>vs last month</span>
             </div>
           </div>
