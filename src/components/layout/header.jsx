@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu, CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun, User, Zap} from "lucide-react";
+import { Menu, CheckCheck, Search, LogOut, Settings, Bell, Palette, Moon, Sun, User, Flame} from "lucide-react";
 
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger} from "@/components/ui/dropdown-menu"
@@ -39,9 +39,9 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
             {layoutMode === "topnav" && (
                 <div className={` flex items-center justify-start `}>
                     <div className="flex bg-linear-to-br from-primary to-secondary from-25%  to-85% w-9 h-9 items-center justify-center rounded-lg "> 
-                        <Zap className="size-4.5 text-white"></Zap>
+                        <Flame className="size-4.5 text-white"></Flame>
                     </div>
-                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm ps-2.5 font-semibold">Apex</span>
+                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm ps-2.5 font-semibold">Flame</span>
                     <div className="h-6 w-px mx-2.5 bg-border" />
                 </div>
             )}

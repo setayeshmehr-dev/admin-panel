@@ -1,4 +1,4 @@
-import {  ChevronRight, ChevronLeft, Zap,  X,  LogOut} from "lucide-react";
+import {  ChevronRight, ChevronLeft, Flame,  X,  LogOut} from "lucide-react";
 
 
 import { Button } from "@/components/ui/button";
@@ -25,10 +25,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen, setCollapsed, col
             {/* ///////////////////////////////////////////     Logo       /////////////////////////////////////////////////// */}
             <div className={`h-16 px-4 flex items-center justify-start border-b border-border shrink-0 ${collapsed ? " justify-center!" : " justify-start!"} `}>
                 <div className="flex bg-linear-to-br from-primary to-secondary from-25%  to-85% w-9 h-9 items-center justify-center rounded-lg "> 
-                    <Zap className="size-4.5 text-white"></Zap>
+                    <Flame className="size-4.5 text-white"></Flame>
                 </div>
                 <div className={`flex flex-col ps-2.5 ${collapsed ? "w-0 hidden opacity-0" : "w-auto flex opacity-100"} `}>
-                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm font-semibold">Apex</span>
+                    <span className="bg-linear-to-br from-primary from-25% to-secondary to-85% bg-clip-text text-transparent text-sm font-semibold">Flame</span>
                     <span className="text-xs text-muted-foreground">DASHBOARD</span>
                 </div>
             </div>

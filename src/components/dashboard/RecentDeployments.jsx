@@ -1,6 +1,6 @@
 "use client"
 
-import {GitBranch } from "lucide-react"
+import {GitBranch, CircleCheck, Clock, CircleAlert } from "lucide-react"
 
 const deployments = [
   {
@@ -64,12 +64,13 @@ export default function RecentDeployments() {
       {/* Deployments */}
       <div className="mt-6 space-y-5">
 
-        {deployments.map((deployment) => (
+        {deployments.map((deployment, index) => (
           <div key={`${deployment.title}-${deployment.time}`} className="flex items-center gap-3" >
 
             {/* Icon */}
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted">
-              <GitBranch className="size-4 text-muted-foreground" />
+            <div className={`flex size-7 shrink-0 items-center justify-center rounded-full ${index === 3 ? "bg-yellow-500/10" : index === 4 ? "bg-red-500/10" : "bg-emerald-500/10"}`}>
+              {index === 3 ? (
+                <Clock className="size-3.5 text-yellow-500" />) : index === 4 ? (<CircleAlert className="size-3.5 text-red-500" />) : (<CircleCheck className="size-3.5 text-emerald-500" />)}
             </div>
 
             {/* Content */}
