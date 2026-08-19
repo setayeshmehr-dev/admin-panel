@@ -85,7 +85,7 @@ export default function OrdersStatus() {
       {/* Chart */}
       <ChartContainer
         config={chartConfig}
-        className="mx-auto aspect-square max-h-[280px]"
+        className="mx-auto aspect-square max-h-70"
       >
         <PieChart>
 

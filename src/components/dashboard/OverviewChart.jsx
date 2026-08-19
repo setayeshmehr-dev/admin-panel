@@ -74,7 +74,7 @@ export default function OverviewChart() {
       </div>
 
       {/* Chart */}
-      <ChartContainer config={chartConfig} className="w-full" >
+      <ChartContainer config={chartConfig} className=" w-full h-112.5" >
 
         {activeChart === "orders" ? (
 
