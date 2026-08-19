@@ -43,8 +43,8 @@ const deployments = [
 
 const environmentStyles = {
   Production: "bg-emerald-500/10 text-emerald-500",
-  Staging: "bg-primary/10 text-primary",
-  Preview: "bg-secondary/10 text-secondary",
+  Staging: "bg-[#cc272e]/10 text-[#cc272e]",
+  Preview: "bg-[#fec31f]/10 text-[#fec31f]",
 }
 
 export default function RecentDeployments() {

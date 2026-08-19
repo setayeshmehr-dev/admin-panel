@@ -145,9 +145,9 @@
 }
 
 :root[data-color-preset="red"] {
-  --primary: oklch(55% 0.2 25);
+  --primary: #cc272e;
   --primary-foreground: oklch(0.98 0.01 25);
-  --secondary: oklch(84.743% 0.168 85.589);
+  --secondary: #fec31f;
 }
 
 :root[data-color-preset="slate"] {
