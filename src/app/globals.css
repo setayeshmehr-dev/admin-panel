@@ -118,30 +118,25 @@
 :root[data-color-preset="violet"] {
   --primary: oklch(55.045% 0.18749 278.998);
   --primary-foreground: oklch(0.969 0.016 293.756);
-  --secondary: oklch(51.736% 0.13879 308.617);
+  --secondary: oklch(72.704% 0.12974 309.372);
 }
 
 :root[data-color-preset="blue"] {
-  --primary: oklch(74.618% 0.14111 244.272);
+  --primary:  oklch(42.664% 0.11894 251.487);
   --primary-foreground: oklch(0.98 0.01 250);
-  --secondary: oklch(31.809% 0.12085 258.585);
+  --secondary: oklch(74.618% 0.14111 244.272);
 }
 
-/* :root[data-color-preset="emerald"] {
-  --primary: oklch(50.252% 0.14275 133.424);
-  --primary-foreground: oklch(98.514% 0.01047 112.59);
-  --secondary: oklch(80.428% 0.11679 121.584);
-} */
 :root[data-color-preset="orange"] {
   --primary: oklch(71.867% 0.19168 49.367);
   --primary-foreground: oklch(98.514% 0.01047 112.59);
-  --secondary: oklch(35.57% 0.0434 47.415);
+  --secondary: oklch(80.082% 0.11908 75.892);
 }
 
 :root[data-color-preset="rose"] {
-  --primary: oklch(80.266% 0.1443 344.18);
+  --primary:  oklch(55% 0.2 350);
   --primary-foreground: oklch(0.98 0.01 350);
-  --secondary: oklch(55% 0.2 350);
+  --secondary: oklch(71.159% 0.13344 344.934);
 }
 
 :root[data-color-preset="red"] {

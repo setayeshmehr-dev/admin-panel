@@ -35,9 +35,7 @@ export const sidebarGroups = [
         group: "COMMERCE",
         items: [
             {title: "Orders", icon: ShoppingCart, href: "/orders"},
-            {title: "Products", icon: Package, href: "/products"},
-            {title: "Customers", icon: Users, href: "/customers"},
-            {title: "Invoices", icon: FileText, href: "/invoices"}
+            {title: "Products", icon: Package, href: "/products"}
         ]
     },
 
