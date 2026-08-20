@@ -53,7 +53,6 @@ export const sidebarGroups = [
     {
         group: "SYSTEM",
         items: [
-            {title: "Users", icon: UserRoundCog, href: "/users"},
             {title: "Notification", icon: Bell, href: "/notification"},
             {title: "Settings", icon: Settings, href: "/settings"},
             {title: "Help & Support", icon: CircleQuestionMark, href: "/helpAndSupport"}
