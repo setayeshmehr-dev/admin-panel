@@ -1,10 +1,10 @@
 import React from 'react'
 
 
-import TeamSkillsAssessment from '@/components/charts/TeamSkillsAssessment'
-import DeviceUsage from '@/components/charts/DeviceUsage'
-import MarketingSpendChart from '@/components/charts/MarketingSpendChart'
-import BudgetAllocation from '@/components/charts/BudgetAllocation'
+import TeamSkillsAssessment from '@/components/chart/TeamSkillsAssessment'
+import DeviceUsage from '@/components/chart/DeviceUsage'
+import MarketingSpendChart from '@/components/chart/MarketingSpendChart'
+import BudgetAllocation from '@/components/chart/BudgetAllocation'
 
 export default function page() {
   return (

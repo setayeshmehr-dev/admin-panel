@@ -1,6 +1,7 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider"
+import { Toaster } from "@/components/ui/sonner"
 
 
 
@@ -19,6 +20,9 @@ export default function RootLayout({ children }) {
       <body className=" min-h-full overscroll-none flex flex-col">
         <ThemeProvider>
           {children}
+          <Toaster
+            duration={5000}
+          />
         </ThemeProvider>
       </body>
     </html>
