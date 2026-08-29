@@ -38,10 +38,10 @@ const chartConfig = {
 
 export default function TopUserActions() {
   return (
-    <div className="text-card-foreground transition-shadow duration-200 col-span-full xl:col-span-5 flux-shadow rounded-2xl border bg-card p-6 shadow-sm">
+    <div className="text-card-foreground transition-shadow duration-200 col-span-full xl:col-span-5 flux-shadow rounded-2xl border bg-card sm:p-6 shadow-sm">
 
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex items-start justify-between sm:px-0 sm:pt-0 px-6 pt-6 ">
 
         <div>
           <h2 className="text-lg font-semibold">Top User Actions</h2>
@@ -51,9 +51,9 @@ export default function TopUserActions() {
       </div>
 
       {/* Chart */}
-      <div className="mt-7">
+      <div className="mt-3">
 
-        <ChartContainer config={chartConfig} className="w-full">
+        <ChartContainer config={chartConfig} className="w-full px-3 sm:px-0">
           <BarChart data={actions} layout="vertical" margin={{ top: 10, right: 0, left: 0, bottom: 0 }}>
 
             <defs>
@@ -67,7 +67,7 @@ export default function TopUserActions() {
 
             <XAxis type="number" domain={[0, 3000]} ticks={[0, 750, 1500, 2250, 3000]} tickFormatter={(value) => `${(value / 1000).toFixed(value >= 1000 ? 1 : 0)}k`} axisLine={false} tickLine={false} tick={{ fontSize: 11 }}/>
 
-            <YAxis type="category" dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} width={105}/>
+            <YAxis type="category" dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11 }} width={115}/>
 
             <ChartTooltip
               cursor={{ fill: "hsl(var(--primary) / 0.06)" }}

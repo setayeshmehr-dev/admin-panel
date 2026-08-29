@@ -55,26 +55,25 @@ export default function OverviewChart() {
   const data = chartData[activeChart]
 
   return (
-    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 col-span-full xl:col-span-7 rounded-2xl border bg-card  p-6">
+    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 col-span-full xl:col-span-7 rounded-2xl border bg-card">
 
       {/* Header */}
-      <div className="mb-6 flex items-center justify-between">
-
+      <div className="flex flex-col gap-3 mb-6 sm:flex-row sm:justify-between px-6 pt-6">
         <div>
           <h2 className="text-lg font-semibold">Overview</h2>
           <p className="text-sm text-muted-foreground">Monthly performance</p>
         </div>
-
-        <ButtonGroup>
-          <Button variant={activeChart === "revenue" ? "default" : "outline"} onClick={() => setActiveChart("revenue")}> Revenue</Button>
-          <Button variant={activeChart === "orders" ? "default" : "outline"} onClick={() => setActiveChart("orders")} > Orders </Button>
-          <Button variant={activeChart === "profit" ? "default" : "outline"} onClick={() => setActiveChart("profit")} > Profit </Button>
-        </ButtonGroup>
-
+        <div>
+          <ButtonGroup>
+            <Button  variant={activeChart === "revenue" ? "default" : "outline"} onClick={() => setActiveChart("revenue")}> Revenue</Button>
+            <Button  variant={activeChart === "orders" ? "default" : "outline"} onClick={() => setActiveChart("orders")} > Orders </Button>
+            <Button  variant={activeChart === "profit" ? "default" : "outline"} onClick={() => setActiveChart("profit")} > Profit </Button>
+          </ButtonGroup>
+        </div>
       </div>
 
       {/* Chart */}
-      <ChartContainer config={chartConfig} className=" w-full h-112.5" >
+      <ChartContainer config={chartConfig} className=" pe-6 mb-6 w-full h-112.5" >
 
         {activeChart === "orders" ? (
 
@@ -100,7 +99,7 @@ export default function OverviewChart() {
 
         ) : (
 
-          <AreaChart accessibilityLayer data={data} margin={{ left: 12, right: 12,}}>
+          <AreaChart className="text-[9px] sm:text-[12px]" accessibilityLayer data={data} margin={{ left: 12, right: 12,}}>
             <defs>
               <linearGradient id={`${activeChart}Gradient`} x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={`var(--color-${activeChart})`} stopOpacity={0.55}/>
@@ -109,7 +108,7 @@ export default function OverviewChart() {
             </defs>
             <CartesianGrid vertical={false} />
 
-            <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8}/>
+            <XAxis  dataKey="month" tickLine={false} axisLine={false} tickMargin={8}/>
 
             <YAxis tickLine={false} axisLine={false} tickMargin={8} domain={[0, 60000]} ticks={[0, 15000, 30000, 45000, 60000]} tickFormatter={(value) => `${value / 1000}k`}/>
 

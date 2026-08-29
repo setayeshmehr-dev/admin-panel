@@ -68,20 +68,20 @@ export default function RecentDeployments() {
           <div key={`${deployment.title}-${deployment.time}`} className="flex items-center gap-3" >
 
             {/* Icon */}
-            <div className={`flex size-7 shrink-0 items-center justify-center rounded-full ${index === 3 ? "bg-yellow-500/10" : index === 4 ? "bg-red-500/10" : "bg-emerald-500/10"}`}>
+            <div className={`flex size-5 sm:size-7 shrink-0 items-center justify-center rounded-full ${index === 3 ? "bg-yellow-500/10" : index === 4 ? "bg-red-500/10" : "bg-emerald-500/10"}`}>
               {index === 3 ? (
-                <Clock className="size-3.5 text-yellow-500" />) : index === 4 ? (<CircleAlert className="size-3.5 text-red-500" />) : (<CircleCheck className="size-3.5 text-emerald-500" />)}
+                <Clock className="size-2.5 sm:size-3.5 text-yellow-500" />) : index === 4 ? (<CircleAlert className="size-3.5 text-red-500" />) : (<CircleCheck className="size-3.5 text-emerald-500" />)}
             </div>
 
             {/* Content */}
             <div className="min-w-0 flex-1">
 
-              <p className="truncate text-sm font-medium">{deployment.title}</p>
+              <p className="truncate text-[11px] sm:text-sm font-medium">{deployment.title}</p>
 
               <div className="mt-1 flex items-center gap-2">
 
-                <span className={`rounded-md px-2 py-0.5 text-[11px] font-medium ${environmentStyles[deployment.environment]}`}>{deployment.environment}</span>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                <span className={`rounded-md px-2 py-0.5 text-[9px] sm:text-[11px] font-medium ${environmentStyles[deployment.environment]}`}>{deployment.environment}</span>
+                <span className="flex items-center gap-1 text-[9px] sm:text-xs text-muted-foreground">
                   <GitBranch className="size-3" />
                   {deployment.branch}
                 </span>

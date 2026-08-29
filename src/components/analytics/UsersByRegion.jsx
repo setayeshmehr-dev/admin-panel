@@ -47,16 +47,16 @@ const regions = [
 
 export default function UsersByRegion() {
   return (
-    <div className="text-card-foreground transition-shadow duration-200 col-span-full xl:col-span-6 flux-shadow rounded-2xl border bg-card p-6 shadow-sm">
+    <div className="text-card-foreground transition-shadow duration-200 col-span-full xl:col-span-6 flux-shadow rounded-2xl border bg-card sm:p-6 shadow-sm">
 
       {/* Header */}
-      <div>
+      <div className="sm:px-0 sm:pt-0 px-6 pt-6">
         <h2 className="text-lg font-semibold">Users by Region</h2>
         <p className="mt-1 text-sm text-muted-foreground">Geographic distribution of active users</p>
       </div>
 
       {/* Regions */}
-      <div className="mt-7 space-y-5">
+      <div className="mt- sm:p-0 p-3 space-y-5">
 
         {regions.map((region) => (
           <div key={region.name} className="flex items-center mt-9 gap-3">

@@ -70,16 +70,16 @@ const chartConfig = {
 
 export default function ActiveUsersTrend() {
   return (
-    <div className="xl:col-span-6 flux-shadow text-card-foreground transition-shadow duration-200 col-span-full rounded-2xl border bg-card p-6 shadow-sm">
+    <div className="xl:col-span-6 flux-shadow text-card-foreground transition-shadow duration-200 col-span-full rounded-2xl border bg-card sm:p-6 shadow-sm">
 
       {/* Header */}
-      <div>
+      <div className="sm:px-0 sm:pt-0 px-6 pt-6">
         <h2 className="text-lg font-semibold">Active Users Trend</h2>
         <p className="mt-1 text-sm text-muted-foreground">Daily active users over the last 14 days</p>
       </div>
 
       {/* Chart */}
-      <div className="mt-7">
+      <div className="mt-7 sm:pb-0 pb-3 ">
 
         <ChartContainer config={chartConfig} className="h-100 w-full">
           <LineChart data={users} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>

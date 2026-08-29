@@ -80,7 +80,7 @@ export default function MonthlyDealFlow() {
       <CardContent>
 
         <ChartContainer config={chartConfig} className="h-90 w-full">
-          <BarChart data={deals} margin={{ top: 10, right: 0, left: -15, bottom: 0 }}>
+          <BarChart data={deals}  margin={{ top: 10, right: 0, left: -15, bottom: 0 }}>
 
             <CartesianGrid vertical={false} strokeDasharray="4 4" />
 
@@ -109,14 +109,14 @@ export default function MonthlyDealFlow() {
               dataKey="won"
               fill="var(--primary)"
               radius={[6, 6, 0, 0]}
-              barSize={18}
+              barSize={9}
             />
 
             <Bar
               dataKey="lost"
               fill="var(--secondary)"
               radius={[6, 6, 0, 0]}
-              barSize={18}
+              barSize={9}
             />
 
           </BarChart>

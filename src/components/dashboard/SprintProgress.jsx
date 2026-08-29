@@ -11,7 +11,7 @@ export default function SprintProgress() {
   const progress = Math.round((completed / total) * 100)
 
   return (
-    <div className=" text-card-foreground transition-shadow duration-200 rounded-2xl border bg-card p-6 shadow-sm">
+    <div className=" text-card-foreground transition-shadow duration-200 rounded-2xl border bg-card sm:p-6 p-3 shadow-sm">
         <div>
           <h2 className="text-lg font-semibold">Sprint 24</h2>
 
@@ -33,26 +33,26 @@ export default function SprintProgress() {
 
             <div className="flex items-center gap-1 ">
                 <div className="flex items-center gap-1">
-                    <Circle className="size-4 stroke-4 text-primary" />
-                    <span className="text-sm">Completed</span>
+                    <Circle className="size-3 sm:size-4 stroke-4 text-primary" />
+                    <span className=" text-[10px] sm:text-sm">Completed</span>
                 </div>
-                <span className="text-sm font-semibold">( {completed} )</span>
+                <span className=" text-[10px] sm:text-sm font-semibold">( {completed} )</span>
             </div>
 
             <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
-                    <Circle className="size-4 stroke-4 text-secondary" />
-                    <span className="text-sm">In Progress</span>
+                    <Circle className="size-3 sm:size-4 stroke-4 text-secondary" />
+                    <span className=" text-[10px] sm:text-sm">In Progress</span>
                 </div>
-                <span className="text-sm font-semibold">( {inProgress} )</span>
+                <span className=" text-[10px] sm:text-sm font-semibold">( {inProgress} )</span>
             </div>
 
             <div className="flex items-center gap-1">
                 <div className="flex items-center gap-1">
-                    <Circle className="size-4 stroke-4 text-muted-foreground" />
-                    <span className="text-sm">To Do</span>
+                    <Circle className="size-3 sm:size-4 stroke-4 text-muted-foreground" />
+                    <span className=" text-[10px] sm:text-sm">To Do</span>
                 </div>
-                <span className="text-sm font-semibold">( {todo} )</span>
+                <span className=" text-[10px] sm:text-sm font-semibold">( {todo} )</span>
             </div>
 
         </div>

@@ -9,42 +9,42 @@ import {
 const data = [
   {
     name: "Engineering",
-    value: 420,
+    value: 320,
     fill: "color-mix(in oklch, var(--primary) 70%, black)",
   },
   {
     name: "Marketing",
-    value: 280,
+    value: 300,
     fill: "color-mix(in oklch, var(--secondary) 70%, black)",
   },
   {
     name: "Sales",
-    value: 240,
+    value: 290,
     fill: "color-mix(in oklch, var(--primary) 80%, black)",
   },
   {
     name: "Operations",
-    value: 180,
+    value: 275,
     fill: "color-mix(in oklch, var(--secondary) 80%, black)",
   },
   {
     name: "Design",
-    value: 150,
+    value: 260,
     fill: "color-mix(in oklch, var(--primary) 90%, black)",
   },
   {
     name: "Support",
-    value: 120,
+    value: 245,
     fill: "color-mix(in oklch, var(--secondary) 90%, black)",
   },
   {
     name: "HR",
-    value: 95,
+    value: 230,
     fill: "var(--primary)",
   },
   {
     name: "Legal",
-    value: 65,
+    value: 220,
     fill: "var(--secondary)", 
   },
 ]
@@ -71,7 +71,7 @@ function CustomContent({
         strokeWidth={3}
       />
 
-      {width > 65 && height > 45 && (
+      {width > 45 && height > 45 && (
         <foreignObject
           x={x}
           y={y}
@@ -79,11 +79,11 @@ function CustomContent({
           height={height}
         >
           <div className="flex h-full w-full flex-col items-center justify-center text-white">
-            <span className="text-sm font-medium">
+            <span className="text-[11px] sm:text-sm font-medium">
               {name}
             </span>
 
-            <span className="text-[10px] text-white/70">
+            <span className="text-[11px] text-white/70">
               ${value}k
             </span>
           </div>
@@ -95,8 +95,8 @@ function CustomContent({
 
 export default function BudgetAllocation() {
   return (
-    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 xl:col-span-5 rounded-xl border border-border bg-card p-6">
-      <div className="mb-4">
+    <div className=" text-card-foreground shadow-sm transition-shadow duration-200 xl:col-span-5 rounded-xl border border-border bg-card sm:p-6">
+      <div className="mb-4 sm:px-0 sm:pt-0 px-6 pt-6">
         <h2 className="text-lg font-semibold">
           Budget Allocation
         </h2>
@@ -106,7 +106,7 @@ export default function BudgetAllocation() {
         </p>
       </div>
 
-      <div className="h-75 w-full">
+      <div className="h-75 w-full p-2 sm:p-0">
         <ResponsiveContainer width="100%" height="100%">
           <Treemap
             data={data}
@@ -124,7 +124,7 @@ export default function BudgetAllocation() {
 
                 return (
                   <div className="rounded-lg border border-border bg-card px-3 py-2 shadow-lg">
-                    <p className="text-sm">
+                    <p className=" text-sm">
                       {item?.name}
                     </p>
 
