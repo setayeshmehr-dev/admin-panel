@@ -101,7 +101,7 @@ export default function Header({setSidebarOpen , setSearchOpen, setAppearanceOpe
 
                     {/* Content */}
 
-                    <ScrollArea className=" h-80 " >
+                    <ScrollArea className=" h-75 " >
 
                         <div>
                             {notifications.slice(0, 5).map((item)=>{

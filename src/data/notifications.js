@@ -1,80 +1,111 @@
-// this is notifications.js in data foulder
-
-
-import {UserPlus ,CreditCard ,ShoppingCart } from "lucide-react";
-
+import {
+  ShoppingCart,
+  CreditCard,
+  UserPlus,
+  PackageCheck,
+  Server,
+  Star,
+  RefreshCw,
+  Wrench,
+  Download,
+  RotateCcw,
+} from "lucide-react";
 
 export const notifications = [
   {
     id: 1,
     title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
-    unread: false,
-    icon: UserPlus
+    description: "Emma Wilson placed order ORD-7891 for $299.00",
+    time: "2 min ago",
+    unread: true,
+    icon: ShoppingCart,
   },
   {
     id: 2,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
+    title: "Payment processed",
+    description: "Payment of $1,499.00 from Sofia Garcia confirmed",
+    time: "15 min ago",
+    unread: false,
+    icon: CreditCard,
   },
   {
     id: 3,
-    title: "New customer registered",
-    description: "A new customer joined",
+    title: "New customer signup",
+    description: "James Chen created an account",
     time: "1 hour ago",
     unread: false,
-    icon: ShoppingCart
+    icon: UserPlus,
   },
   {
     id: 4,
-    title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
-    unread: false,
-    icon: UserPlus
+    title: "Order shipped",
+    description: "ORD-7889 has been shipped to Sofia Garcia",
+    time: "2 hours ago",
+    unread: true,
+    icon: PackageCheck,
   },
   {
     id: 5,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
+    title: "System update",
+    description: "Dashboard v2.1 has been deployed successfully",
+    time: "3 hours ago",
+    unread: false,
+    icon: Server,
   },
   {
     id: 6,
-    title: "New customer registered",
-    description: "A new customer joined",
-    time: "1 hour ago",
-    unread: false,
-    icon: ShoppingCart
+    title: "Payment failed",
+    description: "Payment attempt for ORD-7888 from Alex Thompson failed",
+    time: "4 hours ago",
+    unread: true,
+    icon: CreditCard,
   },
   {
     id: 7,
-    title: "New order received",
-    description: "Order #1024 has been created",
-    time: "2 minutes ago",
+    title: "New review",
+    description: 'Maria Santos left a 5-star review: "Excellent product!"',
+    time: "5 hours ago",
     unread: true,
-    icon: UserPlus
+    icon: Star,
   },
   {
     id: 8,
-    title: "Payment completed",
-    description: "Payment successfully received",
-    time: "10 minutes ago",
-    unread: true,
-    icon: CreditCard
+    title: "Subscription renewed",
+    description: "Team Plan for James Chen renewed for another month",
+    time: "6 hours ago",
+    unread: false,
+    icon: RefreshCw,
   },
   {
     id: 9,
-    title: "New customer registered",
-    description: "A new customer joined",
-    time: "1 hour ago",
+    title: "Server maintenance",
+    description: "Scheduled maintenance window: Feb 20, 2:00 AM - 4:00 AM UTC",
+    time: "1 day ago",
     unread: false,
-    icon: ShoppingCart
+    icon: Wrench,
   },
-]
+  {
+    id: 10,
+    title: "New order received",
+    description: "David Kim placed order ORD-7886 for $599.00",
+    time: "2 days ago",
+    unread: true,
+    icon: ShoppingCart,
+  },
+  {
+    id: 11,
+    title: "Bulk export complete",
+    description: "Your customer data export is ready for download",
+    time: "2 days ago",
+    unread: false,
+    icon: Download,
+  },
+  {
+    id: 12,
+    title: "Refund processed",
+    description: "Refund of $599.00 issued for ORD-7886",
+    time: "3 days ago",
+    unread: false,
+    icon: RotateCcw,
+  },
+];

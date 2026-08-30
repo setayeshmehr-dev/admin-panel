@@ -388,7 +388,7 @@ export default function OrdersPage() {
             <div onClick={() => router.push(`/orders/${order.id}`)}  key={order.id} className="rounded-xl border cursor-pointer hover:bg-muted/80 border-border bg-card p-4 space-y-3">
               {/* Top: Checkbox + Order + Status + Actions */}
               <div  className="flex items-center  justify-between gap-3">
-                <div className="flex items-center gap-3 min-w-0">
+                <div onClick={(e) => e.stopPropagation()} className="flex items-center gap-3 min-w-0">
                   <Checkbox
                     checked={selectedOrders.has(order.id)}
                     onCheckedChange={() => toggleOrder(order.id)}
@@ -400,23 +400,23 @@ export default function OrdersPage() {
                     </div>
                   )}
                 </div>
-                <div className="flex items-center gap-2 shrink-0">
+                <div onClick={(e) => e.stopPropagation()} className="flex items-center gap-2 shrink-0">
                   {visibleColumns.status && (
                     <Badge className={`capitalize rounded-2xl w-18 h-6 text-xs ${statusClass[order.status]}`}>
                       {order.status}
                     </Badge>
                   )}
-                  <DropdownMenu>
-                    <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className="size-8" />}>
+                  <DropdownMenu >
+                    <DropdownMenuTrigger  render={<Button variant="ghost" size="icon" className="size-8" />}>
                       <MoreHorizontal className="size-4" />
                       <span className="sr-only">Actions</span>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem onClick={() => router.push(`/orders/${order.id}`)}>View Order</DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => router.push(`/orders/${order.id}/edit`)}>Edit Order</DropdownMenuItem>
+                      <DropdownMenuItem className="cursor-pointer" onClick={() => router.push(`/orders/${order.id}`)}>View Order</DropdownMenuItem>
+                      <DropdownMenuItem className="cursor-pointer" onClick={() => router.push(`/orders/${order.id}/edit`)}>Edit Order</DropdownMenuItem>
                       <DropdownMenuItem
                         onClick={() => deleteOrder(order.id)}
-                        className="text-red-600 hover:text-red-600 focus:bg-red-500/10 focus:text-red-600"
+                        className="text-red-600 cursor-pointer hover:text-red-600 focus:bg-red-500/10 focus:text-red-600"
                       >
                         <Trash2 className="size-4 mr-2" style={{ stroke: "#dc2626" }} />
                         Delete
