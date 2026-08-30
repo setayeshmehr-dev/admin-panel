@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 
 import { Columns3, Download, MoreHorizontal, Plus, Search, Trash2, ChevronLeft, ChevronRight } from "lucide-react"
 
-import { getOrders, saveOrders } from "@/data/orders"
+import { getOrders} from "@/data/orders"
 
 import { toast } from "sonner"
 import { Badge } from "@/components/ui/badge"
@@ -98,30 +98,28 @@ export default function OrdersPage() {
 
   const clearSelection = () => { setSelectedOrders(new Set()) }
 
-  const deleteOrder = (id) => {
-    setOrders((prev) => {
-      const updatedOrders = prev.filter((order) => order.id !== id)
-      saveOrders(updatedOrders)
-      return updatedOrders
-    })
-    setSelectedOrders((prev) => {
-      const next = new Set(prev)
-      next.delete(id)
-      return next
-    })
-  }
-
-  const deleteSelected = () => {
-    setOrders((prev) => {
-      const updatedOrders = prev.filter((order) => !selectedOrders.has(order.id))
-      saveOrders(updatedOrders)
-      return updatedOrders
-    })
-    setSelectedOrders(new Set())
-    if (currentPage > 1 && startIndex >= filteredOrders.length - selectedOrders.size) {
-      setCurrentPage((page) => Math.max(1, page - 1))
+    const deleteOrder = (id) => {
+      setOrders((prev) => {
+        const updatedOrders = prev.filter((order) => order.id !== id)
+        return updatedOrders
+      })
+      setSelectedOrders((prev) => {
+        const next = new Set(prev)
+        next.delete(id)
+        return next
+      })
     }
-  }
+
+    const deleteSelected = () => {
+      setOrders((prev) => {
+        const updatedOrders = prev.filter((order) => !selectedOrders.has(order.id))
+        return updatedOrders
+      })
+      setSelectedOrders(new Set())
+      if (currentPage > 1 && startIndex >= filteredOrders.length - selectedOrders.size) {
+        setCurrentPage((page) => Math.max(1, page - 1))
+      }
+    }
 
   const clearFilters = () => {
     setSearch("")
@@ -305,8 +303,12 @@ export default function OrdersPage() {
             <TableBody>
               {paginatedOrders.length > 0 ? (
                 paginatedOrders.map((order) => (
-                  <TableRow key={order.id}>
-                    <TableCell>
+                  <TableRow
+                    key={order.id}
+                    className="cursor-pointer hover:bg-muted/50"
+                    onClick={() => router.push(`/orders/${order.id}`)}
+                  >
+                    <TableCell onClick={(e) => e.stopPropagation()}>
                       <Checkbox
                         checked={selectedOrders.has(order.id)}
                         onCheckedChange={() => toggleOrder(order.id)}
@@ -337,7 +339,7 @@ export default function OrdersPage() {
                     )}
                     {visibleColumns.date && <TableCell>{order.date}</TableCell>}
                     {visibleColumns.amount && <TableCell className="font-medium">${order.amount.toLocaleString()}</TableCell>}
-                    <TableCell>
+                    <TableCell onClick={(e) => e.stopPropagation()}>
                       <DropdownMenu>
                         <DropdownMenuTrigger render={<Button variant="ghost" size="icon" className="size-8" />}>
                           <MoreHorizontal className="size-4" />
@@ -383,9 +385,9 @@ export default function OrdersPage() {
       <div className="md:hidden space-y-3">
         {paginatedOrders.length > 0 ? (
           paginatedOrders.map((order) => (
-            <div key={order.id} className="rounded-xl border border-border bg-card p-4 space-y-3">
+            <div onClick={() => router.push(`/orders/${order.id}`)}  key={order.id} className="rounded-xl border cursor-pointer hover:bg-muted/80 border-border bg-card p-4 space-y-3">
               {/* Top: Checkbox + Order + Status + Actions */}
-              <div className="flex items-center justify-between gap-3">
+              <div  className="flex items-center  justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
                   <Checkbox
                     checked={selectedOrders.has(order.id)}
@@ -437,7 +439,6 @@ export default function OrdersPage() {
                 </div>
               )}
 
-              {/* Fields Grid — فقط ستون‌های فعال */}
               <div className="grid grid-cols-2 gap-3 pt-2 border-t border-border">
                 {visibleColumns.product && (
                   <div className="col-span-2 sm:col-span-1">
