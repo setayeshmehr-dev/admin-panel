@@ -36,7 +36,7 @@ export default function DashboardLayout({ children }) {
 
   return (
     <NotificationProvider>
-      <div className="flex min-h-screen h-screen overflow-hidden">
+      <div className="flex min-h-screen h-dvh  overflow-hidden">
         {layoutMode === "sidebar" && (
           <Sidebar 
             sidebarOpen={sidebarOpen} 
