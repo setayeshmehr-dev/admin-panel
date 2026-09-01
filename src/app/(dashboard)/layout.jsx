@@ -21,60 +21,74 @@ export default function DashboardLayout({ children }) {
   const [layoutMode, setLayoutMode] = useState("sidebar")
 
   useEffect(() => {
-
     const handleKeyDown = (e) => {
-
-        if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-
-            e.preventDefault();
-
-            setSearchOpen(true);
-
-        }
-
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
     };
-
 
     window.addEventListener("keydown", handleKeyDown);
-
-
     return () => {
-        window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown);
     };
-
-}, []);
+  }, []);
 
   return (
     <NotificationProvider>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen h-screen overflow-hidden">
         {layoutMode === "sidebar" && (
-          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} collapsed={isCollapsed} setCollapsed={setCollapsed}/>
+          <Sidebar 
+            sidebarOpen={sidebarOpen} 
+            setSidebarOpen={setSidebarOpen} 
+            collapsed={isCollapsed} 
+            setCollapsed={setCollapsed}
+          />
         )}
-          <div onClick={() => setSidebarOpen(false)} className={`fixed inset-0 transition-opacity duration-300 z-40 bg-black/40  lg:hidden ${sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}/>
 
-          <div className="flex-1 transition-all duration-500">
+        {/* Mobile overlay */}
+        <div 
+          onClick={() => setSidebarOpen(false)} 
+          className={`fixed inset-0 transition-opacity duration-300 z-40 bg-black/40 lg:hidden ${
+            sidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        />
 
-            <Header setSidebarOpen={setSidebarOpen} setSearchOpen={setSearchOpen} setAppearanceOpen={setAppearanceOpen} layoutMode={layoutMode} />
+        {/* Main area — flex-col + overflow-hidden */}
+        <div className="flex-1 flex flex-col h-screen overflow-hidden transition-all duration-500">
 
-            {layoutMode === "topnav" && (
-              <TopNav />
-            )}
+          <Header 
+            setSidebarOpen={setSidebarOpen} 
+            setSearchOpen={setSearchOpen} 
+            setAppearanceOpen={setAppearanceOpen} 
+            layoutMode={layoutMode} 
+          />
 
-            <main className='p-6'>
-              {children}
-            </main>
+          {layoutMode === "topnav" && (
+            <TopNav />
+          )}
+
+          {/* Main content — flex-1 + overflow-y-auto + pb-safe */}
+          <main className="flex-1 overflow-y-auto p-4 sm:p-6 pb-24 sm:pb-6">
+            {children}
+          </main>
 
         </div>
+
         {searchOpen && (
           <SearchModal setSearchOpen={setSearchOpen} />
         )}
 
         {appearanceOpen && (
-          <Appearance layoutMode={layoutMode} setLayoutMode={setLayoutMode} appearanceOpen={appearanceOpen} setAppearanceOpen={setAppearanceOpen} />
+          <Appearance 
+            layoutMode={layoutMode} 
+            setLayoutMode={setLayoutMode} 
+            appearanceOpen={appearanceOpen} 
+            setAppearanceOpen={setAppearanceOpen} 
+          />
         )}
 
       </div>
     </NotificationProvider>
   );
 }
-
