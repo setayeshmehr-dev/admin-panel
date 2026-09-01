@@ -192,7 +192,7 @@ export default function HelpAndSupportPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* FAQ Section */}
-        <div className="lg:col-span-2  space-y-5">
+        <div className="lg:col-span-2  space-y-9">
           <div className="relative ">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
@@ -242,7 +242,7 @@ export default function HelpAndSupportPage() {
                 currentFaqs.map((faq, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg lg:mb-5 lg:py-2 border border-border overflow-hidden transition-colors"
+                    className="rounded-lg lg:mb-5 border border-border overflow-hidden transition-colors"
                   >
                     <button
                       onClick={() => toggleFaq(idx)}
